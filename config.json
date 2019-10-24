@@ -1,0 +1,27 @@
+{
+    "mode":"debug",
+    "name": "browser",
+    "database":{
+      "username":"root",
+      "password":"eE7TqDWebwAEh",
+      "dbname":"browser",
+      "address":"47.103.159.44",
+      "port":"80",
+      "maxidleconns":50,
+      "maxopenconns":50
+    },
+    "server":{
+      "port":5080,
+      "readtimeout":3000,
+      "writetime":3000
+    },
+    "websocket": {
+      "refresh":5
+    },
+    "wxpay": {
+      "appid": "wxbf6390ac0eaeabf5",
+      "mchid": "1557745241",
+      "apikey": "dueyr6woiwjshycndh638eyrtskajhfd",
+      "isprod":true
+    }
+}
