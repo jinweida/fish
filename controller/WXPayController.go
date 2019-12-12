@@ -3,7 +3,7 @@ package controller
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/iGoogle-ink/gopay"
-	"github.com/jinweida/fish-common/config"
+	"fish.com/fish-common/config"
 	"github.com/skip2/go-qrcode"
 	"math/rand"
 	"strconv"

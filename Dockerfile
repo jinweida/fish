@@ -1,15 +1,15 @@
 FROM golang:latest
 ENV GO111MODULE=on
 WORKDIR $GOPATH/src/
-ADD . $GOPATH/src/
-RUN mkdir $GOPATH/src/logs &&  go mod download && go build  .
+ADD fish-front-api $GOPATH/src/
+ADD config.json $GOPATH/src/
+ADD log4go.xml $GOPATH/src/
 EXPOSE 7080
-ENTRYPOINT  ["./fish"]
+ENTRYPOINT  ["./fish-front-api"]
 
-# git pull
-# docker build  -t registry.ap-southeast-1.aliyuncs.com/finchan/browser-restful:v1.0.3 .
-# docker push registry.ap-southeast-1.aliyuncs.com/finchan/browser-restful:v1.0.3
-#docker run --restart=always -d -p 7080:7080 -v /mnt/browser-restful/logs/:/go/src/logs \
-#-v /mnt/browser-restful/config.json:/go/src/config.json \
-#-v /etc/localtime:/etc/localtime:ro  --name browser-restful \
-#registry.ap-southeast-1.aliyuncs.com/finchan/browser-restful:latest
+
+#docker run --restart=always --name fish-front-api -d -p 10000:7080 \
+#-v /mnt/fish-front-api/config.json/:/go/src/config.json \
+#-v /mnt/fish-front-api/logs/:/go/src/logs \
+#-v /mnt/fish-front-api/assets/:/go/src/assets \
+# fish.com/runtime:latest

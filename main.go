@@ -6,10 +6,13 @@ import (
 	"github.com/alecthomas/log4go"
 	"github.com/gin-gonic/gin"
 	"github.com/iGoogle-ink/gopay"
-	"github.com/jinweida/fish-common/config"
-	"github.com/jinweida/fish-common/models"
-	"github.com/jinweida/fish/controller"
-	"github.com/jinweida/fish/routers"
+	"fish.com/fish-common/config"
+	"fish.com/fish-common/models"
+	"fish.com/fish-front-api/controller"
+	"fish.com/fish-front-api/routers"
+	"github.com/swaggo/files"
+	_ "fish.com/fish-front-api/docs"
+	"github.com/swaggo/gin-swagger"
 	"log"
 	"os"
 )
@@ -37,10 +40,18 @@ func init(){
 	controller.Client=gopay.NewWeChatClient(config.Conf.WxPay.AppId,config.Conf.WxPay.MchId, config.Conf.WxPay.ApiKey, config.Conf.WxPay.IsProd)
 }
 
+// @title 快分API
+// @version 1.0
+// @description 快分API
+// @host http://114.115.204.97:10000
+// @BasePath /api
 func main() {
 	fmt.Println("GoPay Version: ", gopay.Version)
 	models.OpenDB(config.Conf)
 	gin.SetMode(config.Conf.Mode)
+
+
+
 
 	router := routers.InitRouter()
 	router.GET("/ping", func(c *gin.Context) {
@@ -50,5 +61,7 @@ func main() {
 	})
 
 
+	url := ginSwagger.URL("http://localhost:5080/swagger/doc.json")
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler, url))	//websocket
 	router.Run(fmt.Sprintf(":%d", config.Conf.Server.Port))
 }

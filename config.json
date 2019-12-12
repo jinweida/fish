@@ -4,11 +4,11 @@
     "database":{
       "username":"root",
       "password":"eE7TqDWebwAEh",
-      "dbname":"browser",
-      "address":"47.103.159.44",
-      "port":"80",
-      "maxidleconns":50,
-      "maxopenconns":50
+      "dbname":"fish",
+      "address":"114.115.204.97",
+      "port":"8006",
+      "maxidleconns":10,
+      "maxopenconns":100
     },
     "server":{
       "port":5080,
@@ -22,6 +22,8 @@
       "appid": "wxbf6390ac0eaeabf5",
       "mchid": "1557745241",
       "apikey": "dueyr6woiwjshycndh638eyrtskajhfd",
-      "isprod":true
+      "isprod":true,
+      "miniappid": "wxeceb07d4926a1fa9",
+      "minisecret": "1a71c6167acd5d6119e814bafd32bb15"
     }
 }

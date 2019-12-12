@@ -1,0 +1,94 @@
+basePath: /api
+definitions:
+  entity.Response:
+    properties:
+      code:
+        type: integer
+      data:
+        type: object
+      msg:
+        type: string
+    type: object
+host: localhost:5080
+info:
+  contact: {}
+  description: 快分API
+  license: {}
+  title: 快分API
+  version: "1.0"
+paths:
+  /login:
+    get:
+      consumes:
+      - application/json
+      description: 小程序登录
+      parameters:
+      - description: 小程序获取code
+        in: query
+        name: code
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "1":
+          description: success
+          schema:
+            $ref: '#/definitions/entity.Response'
+      summary: 小程序登录
+  /merchant/classify:
+    get:
+      consumes:
+      - application/json
+      description: 获取分类
+      operationId: get-string-by-int
+      produces:
+      - application/json
+      responses:
+        "1":
+          description: success
+          schema:
+            $ref: '#/definitions/entity.Response'
+      summary: 获取分类
+  /merchant/store:
+    get:
+      consumes:
+      - application/json
+      description: 获取商家店铺
+      operationId: get-string-by-int
+      produces:
+      - application/json
+      responses:
+        "1":
+          description: success
+          schema:
+            $ref: '#/definitions/entity.Response'
+      summary: 获取商家店铺
+  /sysadvert:
+    get:
+      consumes:
+      - application/json
+      description: 获取广告
+      produces:
+      - application/json
+      responses:
+        "1":
+          description: success
+          schema:
+            $ref: '#/definitions/entity.Response'
+      summary: 获取广告
+  /sysconfig:
+    get:
+      consumes:
+      - application/json
+      description: 获取配置列表
+      operationId: get-string-by-int
+      produces:
+      - application/json
+      responses:
+        "1":
+          description: success
+          schema:
+            $ref: '#/definitions/entity.Response'
+      summary: 获取配置列表
+swagger: "2.0"

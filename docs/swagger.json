@@ -1,0 +1,142 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "快分API",
+        "title": "快分API",
+        "contact": {},
+        "license": {},
+        "version": "1.0"
+    },
+    "host": "localhost:5080",
+    "basePath": "/api",
+    "paths": {
+        "/login": {
+            "get": {
+                "description": "小程序登录",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "小程序登录",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "小程序获取code",
+                        "name": "code",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "1": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/entity.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/merchant/classify": {
+            "get": {
+                "description": "获取分类",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取分类",
+                "operationId": "get-string-by-int",
+                "responses": {
+                    "1": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/entity.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/merchant/store": {
+            "get": {
+                "description": "获取商家店铺",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取商家店铺",
+                "operationId": "get-string-by-int",
+                "responses": {
+                    "1": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/entity.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/sysadvert": {
+            "get": {
+                "description": "获取广告",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取广告",
+                "responses": {
+                    "1": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/entity.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/sysconfig": {
+            "get": {
+                "description": "获取配置列表",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "summary": "获取配置列表",
+                "operationId": "get-string-by-int",
+                "responses": {
+                    "1": {
+                        "description": "success",
+                        "schema": {
+                            "$ref": "#/definitions/entity.Response"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "entity.Response": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "data": {
+                    "type": "object"
+                },
+                "msg": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

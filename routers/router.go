@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"github.com/jinweida/fish/controller"
+	"fish.com/fish-front-api/controller"
 	"github.com/gin-gonic/gin"
 )
 
@@ -18,7 +18,24 @@ func InitRouter() *gin.Engine {
 		})
 	})
 
+	login:=&controller.LoginController{}
+	api.GET("/login",login.Login)
+
 	wxpay := &controller.WXPayController{}
 	api.GET("/wxpay/test", wxpay.Test)
+	//api.Use(middleware.JWTAuth())
+
+	sysConfig:=&controller.SysConfigController{}
+	api.GET("/sysconfig",sysConfig.List)
+
+	sysAdvert:=&controller.SysAdvertController{}
+	api.GET("/sysadvert",sysAdvert.List)
+
+	merchantClassify:=&controller.MerchantClassifyController{}
+	api.GET("/merchant/classify",merchantClassify.List)
+
+
+	merchantStore:=&controller.MerchantStoreController{}
+	api.GET("/merchant/store",merchantStore.List)
 	return r
 }
